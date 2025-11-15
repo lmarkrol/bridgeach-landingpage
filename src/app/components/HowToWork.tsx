@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Lottie from "lottie-react";
+import useScreenSize from "../../hooks/useScreenSize";
 import consultationLottie from '../../../public/assets/lottie/1consultation.json';
 import visitDemoLottie from '../../../public/assets/lottie/2visitdemo.json';
 import priceLottie from '../../../public/assets/lottie/3price.json';
@@ -11,9 +12,14 @@ interface HowToWorkProps {
 }
 
 const HowToWork: React.FC<HowToWorkProps> = ({ darkMode }) => {
+  const isMobile = useScreenSize();
   const [visibility, setVisibility] = useState<Record<string, boolean>>({});
   const [hoveredSection, setHoveredSection] = useState<string | null>(null);
   const [animatedColor, setAnimatedColor] = useState<string>('#3b82f6');
+
+  const handleSectionClick = (sectionId: string) => {
+    setHoveredSection(prev => (prev === sectionId ? null : sectionId));
+  };
 
   // Color sequences from Header.tsx
   const lightRGBColors = [
@@ -141,8 +147,7 @@ const HowToWork: React.FC<HowToWorkProps> = ({ darkMode }) => {
         <div
           data-step="1"
           className={`grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-8 md:gap-8 transition-all duration-1500 ease-in-out mx-auto max-w-6xl ${visibility['1'] ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}
-          onMouseEnter={() => setHoveredSection('1')}
-          onMouseLeave={() => setHoveredSection(null)}
+          {...(isMobile ? { onClick: () => handleSectionClick('1') } : { onMouseEnter: () => setHoveredSection('1'), onMouseLeave: () => setHoveredSection(null) })}
         >
           {/* Picture on the left side - animate from left */}
           <div className={`flex justify-center order-1 md:order-1 transition-all duration-1500 ease-in-out delay-150 ${visibility['1'] ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
@@ -186,8 +191,7 @@ const HowToWork: React.FC<HowToWorkProps> = ({ darkMode }) => {
         <div
           data-step="2"
           className={`grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-8 md:gap-8 transition-all duration-1500 ease-in-out mx-auto max-w-6xl ${visibility['2'] ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}
-          onMouseEnter={() => setHoveredSection('2')}
-          onMouseLeave={() => setHoveredSection(null)}
+          {...(isMobile ? { onClick: () => handleSectionClick('2') } : { onMouseEnter: () => setHoveredSection('2'), onMouseLeave: () => setHoveredSection(null) })}
         >
           {/* Column with 3 parts on the right side - animate from right */}
           <div className={`space-y-3 h-full flex flex-col justify-center py-4 md:py-8 order-2 md:order-1 transition-all duration-1500 ease-in-out delay-150 ${visibility['2'] ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
@@ -231,8 +235,7 @@ const HowToWork: React.FC<HowToWorkProps> = ({ darkMode }) => {
         <div
           data-step="3"
           className={`grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-8 md:gap-8 transition-all duration-1500 ease-in-out mx-auto max-w-6xl ${visibility['3'] ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}
-          onMouseEnter={() => setHoveredSection('3')}
-          onMouseLeave={() => setHoveredSection(null)}
+          {...(isMobile ? { onClick: () => handleSectionClick('3') } : { onMouseEnter: () => setHoveredSection('3'), onMouseLeave: () => setHoveredSection(null) })}
         >
           {/* Picture on the left side - animate from left */}
           <div className={`flex justify-center order-1 md:order-1 transition-all duration-1500 ease-in-out delay-150 ${visibility['3'] ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
@@ -276,8 +279,7 @@ const HowToWork: React.FC<HowToWorkProps> = ({ darkMode }) => {
         <div
           data-step="4"
           className={`grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-8 md:gap-8 transition-all duration-1500 ease-in-out mx-auto max-w-6xl ${visibility['4'] ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}
-          onMouseEnter={() => setHoveredSection('4')}
-          onMouseLeave={() => setHoveredSection(null)}
+          {...(isMobile ? { onClick: () => handleSectionClick('4') } : { onMouseEnter: () => setHoveredSection('4'), onMouseLeave: () => setHoveredSection(null) })}
         >
           {/* Column with 3 parts on the right side - animate from right */}
           <div className={`space-y-3 h-full flex flex-col justify-center py-4 md:py-8 order-2 md:order-1 transition-all duration-1500 ease-in-out delay-150 ${visibility['4'] ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
@@ -321,8 +323,7 @@ const HowToWork: React.FC<HowToWorkProps> = ({ darkMode }) => {
         <div
           data-step="5"
           className={`grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-8 md:gap-8 transition-all duration-1500 ease-in-out mx-auto max-w-6xl ${visibility['5'] ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}
-          onMouseEnter={() => setHoveredSection('5')}
-          onMouseLeave={() => setHoveredSection(null)}
+          {...(isMobile ? { onClick: () => handleSectionClick('5') } : { onMouseEnter: () => setHoveredSection('5'), onMouseLeave: () => setHoveredSection(null) })}
         >
           {/* Picture on the left side - animate from left */}
           <div className={`flex justify-center order-1 md:order-1 transition-all duration-1500 ease-in-out delay-150 ${visibility['5'] ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
