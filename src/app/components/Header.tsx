@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 interface HeaderProps {
@@ -33,7 +33,6 @@ const Header = ({ darkMode, toggleTheme, scrollToSection }: HeaderProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
   const [animatedColor, setAnimatedColor] = useState<string>('#3b82f6');
-  const colorIndexRef = useRef(0);
 
   useEffect(() => {
     let animationFrameId: number;
@@ -85,12 +84,18 @@ const Header = ({ darkMode, toggleTheme, scrollToSection }: HeaderProps) => {
       startTime = null; // Reset start time
       animationFrameId = requestAnimationFrame(animateColor);
     } else {
-      setAnimatedColor(darkMode ? '#33FFBE' : '#004FCC'); // Reset to theme-appropriate color when not hovered
+      const defaultColor = darkMode ? '#33FFBE' : '#004FCC';
+      setTimeout(() => {
+        if (animatedColor !== defaultColor) {
+          setAnimatedColor(defaultColor);
+        }
+      }, 0);
     }
 
     return () => {
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hoveredNav, darkMode]); // Include darkMode in dependency array to restart animation when theme changes
 
   return (
@@ -134,6 +139,15 @@ const Header = ({ darkMode, toggleTheme, scrollToSection }: HeaderProps) => {
             className={`min-w-[120px] ${hoveredNav !== "collaboration" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
           >
             Collaboration
+          </button>
+          <button
+            onClick={() => scrollToSection("how-to-work")}
+            onMouseEnter={() => setHoveredNav("how-to-work")}
+            onMouseLeave={() => setHoveredNav(null)}
+            style={{ color: hoveredNav === "how-to-work" ? animatedColor : undefined, fontWeight: hoveredNav === "how-to-work" ? 'bold' : 'normal' }}
+            className={`min-w-[120px] ${hoveredNav !== "how-to-work" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
+          >
+            How to Work
           </button>
           <button
             onClick={() => scrollToSection("testimonials")}
@@ -316,6 +330,18 @@ const Header = ({ darkMode, toggleTheme, scrollToSection }: HeaderProps) => {
               className={`py-2 w-full text-center min-w-[100px] ${hoveredNav !== "collaboration" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
             >
               Collaboration
+            </button>
+            <button
+              onClick={() => {
+                scrollToSection("how-to-work");
+                setMobileMenuOpen(false);
+              }}
+              onMouseEnter={() => setHoveredNav("how-to-work")}
+              onMouseLeave={() => setHoveredNav(null)}
+              style={{ color: hoveredNav === "how-to-work" ? animatedColor : undefined, fontWeight: hoveredNav === "how-to-work" ? 'bold' : 'normal' }}
+              className={`py-2 w-full text-center min-w-[100px] ${hoveredNav !== "how-to-work" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
+            >
+              How to Work
             </button>
             <button
               onClick={() => {

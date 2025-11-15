@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import useScreenSize from "../../hooks/useScreenSize";
 
@@ -30,7 +30,6 @@ const Footer = ({ darkMode }: FooterProps) => {
 
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const [animatedColor, setAnimatedColor] = useState<string>('#3b82f6');
-  const colorIndexRef = useRef(0);
 
   useEffect(() => {
     let animationFrameId: number;
@@ -82,12 +81,18 @@ const Footer = ({ darkMode }: FooterProps) => {
       startTime = null; // Reset start time
       animationFrameId = requestAnimationFrame(animateColor);
     } else {
-      setAnimatedColor(darkMode ? '#33FFBE' : '#004FCC'); // Reset to theme-appropriate color when not hovered
+      const defaultColor = darkMode ? '#33FFBE' : '#004FCC';
+      setTimeout(() => {
+        if (animatedColor !== defaultColor) {
+          setAnimatedColor(defaultColor);
+        }
+      }, 0);
     }
 
     return () => {
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hoveredLink, darkMode]); // Include darkMode in dependency array to restart animation when theme changes
 
   return (

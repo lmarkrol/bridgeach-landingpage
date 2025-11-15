@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Features from "./components/Features";
 import CollaborationModel from "./components/CollaborationModel";
+import HowToWork from "./components/HowToWork";
 import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -111,6 +112,8 @@ export default function LandingPage() {
       <Features />
 
       <CollaborationModel />
+
+      <HowToWork darkMode={darkMode} />
 
       <Testimonials />
 
