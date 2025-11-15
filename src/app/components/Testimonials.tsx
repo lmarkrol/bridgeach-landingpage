@@ -218,7 +218,7 @@ const Testimonials = () => {
         </div>
         <div className="relative w-full overflow-hidden">
           {/* Mobile Carousel */}
-          <div className="md:hidden relative overflow-hidden">
+          <div className="md:hidden relative overflow-hidden" style={{ minHeight: "350px" }}>
             <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${activeIndex * 100}%)` }}
@@ -233,8 +233,8 @@ const Testimonials = () => {
                 >
                   <div className="bg uwu" style={{ inset: "6px" }} />
                   <div className="bg" style={{ inset: "6px" }} />
-                  <div className="rounded-2xl border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900 h-[280px] w-[96%] mx-auto">
-                    <div className="content p-8">
+                  <div className="rounded-2xl border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900 h-[280px] w-[96%] mx-auto overflow-hidden">
+                    <div className="content p-8 overflow-y-hidden">
                       <div className="mb-4 flex items-center">
                         <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent-100 text-accent-600 dark:bg-accent-900/30 dark:text-accent-400">
                           <span className="font-bold">
@@ -298,7 +298,7 @@ const Testimonials = () => {
               onTouchStart={handleTouchStartDesktop}
               onTouchMove={handleTouchMoveDesktop}
               onTouchEnd={handleTouchEndDesktop}
-              style={{ overflowX: "scroll", cursor: "grab" }}
+              style={{ overflowX: "scroll", overflowY: "hidden", cursor: "grab" }}
             >
               {[...testimonials, ...testimonials].map((testimonial, index) => (
                 <div
@@ -307,8 +307,8 @@ const Testimonials = () => {
                 >
                   <div className="bg uwu" />
                   <div className="bg" />
-                  <div className="rounded-2xl border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900">
-                    <div className="content p-8">
+                  <div className="rounded-2xl border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900 overflow-hidden">
+                    <div className="content p-8 overflow-y-hidden">
                       <div className="mb-4 flex items-center">
                         <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent-100 text-accent-600 dark:bg-accent-900/30 dark:text-accent-400">
                           <span className="font-bold">

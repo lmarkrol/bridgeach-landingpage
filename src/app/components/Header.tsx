@@ -122,7 +122,7 @@ const Header = ({ darkMode, toggleTheme, scrollToSection }: HeaderProps) => {
             onMouseEnter={() => setHoveredNav("features")}
             onMouseLeave={() => setHoveredNav(null)}
             style={{ color: hoveredNav === "features" ? animatedColor : undefined, fontWeight: hoveredNav === "features" ? 'bold' : 'normal' }}
-            className={`${hoveredNav !== "features" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
+            className={`min-w-[120px] ${hoveredNav !== "features" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
           >
             Features
           </button>
@@ -131,7 +131,7 @@ const Header = ({ darkMode, toggleTheme, scrollToSection }: HeaderProps) => {
             onMouseEnter={() => setHoveredNav("collaboration")}
             onMouseLeave={() => setHoveredNav(null)}
             style={{ color: hoveredNav === "collaboration" ? animatedColor : undefined, fontWeight: hoveredNav === "collaboration" ? 'bold' : 'normal' }}
-            className={`${hoveredNav !== "collaboration" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
+            className={`min-w-[120px] ${hoveredNav !== "collaboration" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
           >
             Collaboration
           </button>
@@ -140,7 +140,7 @@ const Header = ({ darkMode, toggleTheme, scrollToSection }: HeaderProps) => {
             onMouseEnter={() => setHoveredNav("testimonials")}
             onMouseLeave={() => setHoveredNav(null)}
             style={{ color: hoveredNav === "testimonials" ? animatedColor : undefined, fontWeight: hoveredNav === "testimonials" ? 'bold' : 'normal' }}
-            className={`${hoveredNav !== "testimonials" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
+            className={`min-w-[120px] ${hoveredNav !== "testimonials" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
           >
             Testimonials
           </button>
@@ -149,7 +149,7 @@ const Header = ({ darkMode, toggleTheme, scrollToSection }: HeaderProps) => {
             onMouseEnter={() => setHoveredNav("contacts")}
             onMouseLeave={() => setHoveredNav(null)}
             style={{ color: hoveredNav === "contacts" ? animatedColor : undefined, fontWeight: hoveredNav === "contacts" ? 'bold' : 'normal' }}
-            className={`${hoveredNav !== "contacts" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
+            className={`min-w-[120px] ${hoveredNav !== "contacts" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
           >
             Contacts
           </button>
@@ -158,7 +158,7 @@ const Header = ({ darkMode, toggleTheme, scrollToSection }: HeaderProps) => {
             onMouseEnter={() => setHoveredNav("footer")}
             onMouseLeave={() => setHoveredNav(null)}
             style={{ color: hoveredNav === "footer" ? animatedColor : undefined, fontWeight: hoveredNav === "footer" ? 'bold' : 'normal' }}
-            className={`${hoveredNav !== "footer" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
+            className={`min-w-[120px] ${hoveredNav !== "footer" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
           >
             Resources
           </button>
@@ -301,7 +301,7 @@ const Header = ({ darkMode, toggleTheme, scrollToSection }: HeaderProps) => {
               onMouseEnter={() => setHoveredNav("features")}
               onMouseLeave={() => setHoveredNav(null)}
               style={{ color: hoveredNav === "features" ? animatedColor : undefined, fontWeight: hoveredNav === "features" ? 'bold' : 'normal' }}
-              className={`py-2 w-full text-center ${hoveredNav !== "features" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
+              className={`py-2 w-full text-center min-w-[100px] ${hoveredNav !== "features" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
             >
               Features
             </button>
@@ -313,7 +313,7 @@ const Header = ({ darkMode, toggleTheme, scrollToSection }: HeaderProps) => {
               onMouseEnter={() => setHoveredNav("collaboration")}
               onMouseLeave={() => setHoveredNav(null)}
               style={{ color: hoveredNav === "collaboration" ? animatedColor : undefined, fontWeight: hoveredNav === "collaboration" ? 'bold' : 'normal' }}
-              className={`py-2 w-full text-center ${hoveredNav !== "collaboration" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
+              className={`py-2 w-full text-center min-w-[100px] ${hoveredNav !== "collaboration" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
             >
               Collaboration
             </button>
@@ -325,7 +325,7 @@ const Header = ({ darkMode, toggleTheme, scrollToSection }: HeaderProps) => {
               onMouseEnter={() => setHoveredNav("testimonials")}
               onMouseLeave={() => setHoveredNav(null)}
               style={{ color: hoveredNav === "testimonials" ? animatedColor : undefined, fontWeight: hoveredNav === "testimonials" ? 'bold' : 'normal' }}
-              className={`py-2 w-full text-center ${hoveredNav !== "testimonials" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
+              className={`py-2 w-full text-center min-w-[100px] ${hoveredNav !== "testimonials" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
             >
               Testimonials
             </button>
@@ -337,7 +337,7 @@ const Header = ({ darkMode, toggleTheme, scrollToSection }: HeaderProps) => {
               onMouseEnter={() => setHoveredNav("contacts")}
               onMouseLeave={() => setHoveredNav(null)}
               style={{ color: hoveredNav === "contacts" ? animatedColor : undefined, fontWeight: hoveredNav === "contacts" ? 'bold' : 'normal' }}
-              className={`py-2 w-full text-center ${hoveredNav !== "contacts" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
+              className={`py-2 w-full text-center min-w-[100px] ${hoveredNav !== "contacts" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
             >
               Contacts
             </button>
@@ -349,7 +349,7 @@ const Header = ({ darkMode, toggleTheme, scrollToSection }: HeaderProps) => {
               onMouseEnter={() => setHoveredNav("footer")}
               onMouseLeave={() => setHoveredNav(null)}
               style={{ color: hoveredNav === "footer" ? animatedColor : undefined, fontWeight: hoveredNav === "footer" ? 'bold' : 'normal' }}
-              className={`py-2 w-full text-center ${hoveredNav !== "footer" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
+              className={`py-2 w-full text-center min-w-[100px] ${hoveredNav !== "footer" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
             >
               Resources
             </button>

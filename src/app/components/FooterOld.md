@@ -117,29 +117,39 @@ const Footer = ({ darkMode }: FooterProps) => {
                 Bridging the gap between teams and results with intuitive tools
                 designed for modern collaboration.
               </p>
-              <div className="flex justify-center md:justify-start space-x-6">
-                <a
-                  href="#"
-                  onMouseEnter={() => setHoveredLink("linkedin")}
-                  onMouseLeave={() => setHoveredLink(null)}
-                  style={{ color: hoveredLink === "linkedin" ? animatedColor : undefined, fontWeight: hoveredLink === "linkedin" ? 'bold' : 'normal' }}
-                  className={`h-6 w-6 flex items-center justify-center ${hoveredLink !== "linkedin" ? "text-gray-600 dark:text-gray-300" : ""}`}
-                  aria-label="LinkedIn"
-                >
-                  <svg className={`h-6 w-6 ${hoveredLink === "linkedin" ? "scale-150 transition-transform duration-300" : ""}`} fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.045c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.27 2.37 4.27 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065c0-1.136.92-2.063 2.063-2.063 1.137 0 2.065.927 2.065 2.063 0 1.137-.928 2.065-2.065 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.454c.98 0 1.775-.773 1.775-1.729V1.729C24 .774 23.225 0 22.225 0z"/>
-                  </svg>
-                </a>
+              <div
+                className={`flex space-x-4 ${isMobile ? "justify-center" : ""}`}
+              >
                 <a
                   href="#"
                   onMouseEnter={() => setHoveredLink("twitter")}
                   onMouseLeave={() => setHoveredLink(null)}
                   style={{ color: hoveredLink === "twitter" ? animatedColor : undefined, fontWeight: hoveredLink === "twitter" ? 'bold' : 'normal' }}
-                  className={`h-6 w-6 flex items-center justify-center ${hoveredLink !== "twitter" ? "text-gray-600 dark:text-gray-300" : ""}`}
-                  aria-label="X (Twitter)"
+                  className={`${hoveredLink !== "twitter" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
                 >
-                  <svg className={`h-6 w-6 ${hoveredLink === "twitter" ? "scale-150 transition-transform duration-300" : ""}`} fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  <span className="sr-only">Twitter</span>
+                  <svg
+                    className="h-6 w-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  onMouseEnter={() => setHoveredLink("linkedin")}
+                  onMouseLeave={() => setHoveredLink(null)}
+                  style={{ color: hoveredLink === "linkedin" ? animatedColor : undefined, fontWeight: hoveredLink === "linkedin" ? 'bold' : 'normal' }}
+                  className={`${hoveredLink !== "linkedin" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
+                >
+                  <span className="sr-only">LinkedIn</span>
+                  <svg
+                    className="h-6 w-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5V5c0-2.761-2.238-5-5-5zM8 19H6v-9h2v9zM6 8.438C6 7.132 6.955 6 8.117 6c1.16 0 1.882.933 1.882 2.042V8h-2v-2c0-.656-.414-1-1-1-.584 0-1 .344-1 1v3.438zm5 1.562A2 2 0 019 12c0-1.11.89-2 2-2s2 .89 2 2a2 2 0 01-2 2zm5 1.5V8h-2v5.5a2.5 2.5 0 01-5 0V8h-2v9h2v-4.5a.5.5 0 01.5-.5h2a.5.5 0 01.5.5V17h2z" />
                   </svg>
                 </a>
                 <a
@@ -147,10 +157,14 @@ const Footer = ({ darkMode }: FooterProps) => {
                   onMouseEnter={() => setHoveredLink("github")}
                   onMouseLeave={() => setHoveredLink(null)}
                   style={{ color: hoveredLink === "github" ? animatedColor : undefined, fontWeight: hoveredLink === "github" ? 'bold' : 'normal' }}
-                  className={`h-6 w-6 flex items-center justify-center ${hoveredLink !== "github" ? "text-gray-600 dark:text-gray-300" : ""}`}
-                  aria-label="GitHub"
+                  className={`${hoveredLink !== "github" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
                 >
-                  <svg className={`h-6 w-6 ${hoveredLink === "github" ? "scale-150 transition-transform duration-300" : ""}`} fill="currentColor" viewBox="0 0 24 24">
+                  <span className="sr-only">GitHub</span>
+                  <svg
+                    className="h-6 w-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
                     <path
                       fillRule="evenodd"
                       d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.000 0 0022 12.017C22 6.484 17.522 2 12 2z"
@@ -164,19 +178,19 @@ const Footer = ({ darkMode }: FooterProps) => {
               className={`lg:col-span-8 lg:flex lg:justify-end lg:gap-24 ${isMobile ? "flex flex-col items-center gap-12" : ""}`}
             >
               <div
-                className={`md:order-1 lg:order-2 min-w-[150px] ${isMobile ? "text-center" : "lg:text-left"}`}
+                className={`md:order-1 lg:order-2 ${isMobile ? "text-center" : "lg:text-center"}`}
               >
-                <h3 className="mb-6 font-semibold text-gray-900 dark:text-white text-center sm:text-left">
+                <h3 className="mb-6 font-semibold text-gray-900 dark:text-white">
                   Product
                 </h3>
-                <ul className={`space-y-4 ${isMobile ? "text-center" : ""}`}>
+                <ul className="space-y-4">
                   <li>
                     <a
                       href="#"
                       onMouseEnter={() => setHoveredLink("product-features")}
                       onMouseLeave={() => setHoveredLink(null)}
                       style={{ color: hoveredLink === "product-features" ? animatedColor : undefined, fontWeight: hoveredLink === "product-features" ? 'bold' : 'normal' }}
-                      className={`min-w-[120px] ${hoveredLink !== "product-features" ? "text-gray-600 dark:text-gray-300 font-medium" : ""} ${isMobile ? "text-center" : ""}`}
+                      className={`${hoveredLink !== "product-features" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
                     >
                       Features
                     </a>
@@ -187,7 +201,7 @@ const Footer = ({ darkMode }: FooterProps) => {
                       onMouseEnter={() => setHoveredLink("product-testimonials")}
                       onMouseLeave={() => setHoveredLink(null)}
                       style={{ color: hoveredLink === "product-testimonials" ? animatedColor : undefined, fontWeight: hoveredLink === "product-testimonials" ? 'bold' : 'normal' }}
-                      className={`min-w-[120px] ${hoveredLink !== "product-testimonials" ? "text-gray-600 dark:text-gray-300 font-medium" : ""} ${isMobile ? "text-center" : ""}`}
+                      className={`${hoveredLink !== "product-testimonials" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
                     >
                       Testimonials
                     </a>
@@ -198,7 +212,7 @@ const Footer = ({ darkMode }: FooterProps) => {
                       onMouseEnter={() => setHoveredLink("product-contacts")}
                       onMouseLeave={() => setHoveredLink(null)}
                       style={{ color: hoveredLink === "product-contacts" ? animatedColor : undefined, fontWeight: hoveredLink === "product-contacts" ? 'bold' : 'normal' }}
-                      className={`min-w-[120px] ${hoveredLink !== "product-contacts" ? "text-gray-600 dark:text-gray-300 font-medium" : ""} ${isMobile ? "text-center" : ""}`}
+                      className={`${hoveredLink !== "product-contacts" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
                     >
                       Contacts
                     </a>
@@ -209,7 +223,7 @@ const Footer = ({ darkMode }: FooterProps) => {
                       onMouseEnter={() => setHoveredLink("product-changelog")}
                       onMouseLeave={() => setHoveredLink(null)}
                       style={{ color: hoveredLink === "product-changelog" ? animatedColor : undefined, fontWeight: hoveredLink === "product-changelog" ? 'bold' : 'normal' }}
-                      className={`min-w-[120px] ${hoveredLink !== "product-changelog" ? "text-gray-600 dark:text-gray-300 font-medium" : ""} ${isMobile ? "text-center" : ""}`}
+                      className={`${hoveredLink !== "product-changelog" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
                     >
                       Changelog
                     </a>
@@ -218,19 +232,19 @@ const Footer = ({ darkMode }: FooterProps) => {
               </div>
 
               <div
-                className={`md:order-2 lg:order-3 min-w-[150px] ${isMobile ? "text-center" : "lg:text-left"}`}
+                className={`md:order-2 lg:order-3 ${isMobile ? "text-center" : "lg:text-center"}`}
               >
-                <h3 className="mb-6 font-semibold text-gray-900 dark:text-white text-center sm:text-left">
+                <h3 className="mb-6 font-semibold text-gray-900 dark:text-white">
                   Resources
                 </h3>
-                <ul className={`space-y-4 ${isMobile ? "text-center" : ""}`}>
+                <ul className="space-y-4">
                   <li>
                     <a
                       href="#"
                       onMouseEnter={() => setHoveredLink("resources-blog")}
                       onMouseLeave={() => setHoveredLink(null)}
                       style={{ color: hoveredLink === "resources-blog" ? animatedColor : undefined, fontWeight: hoveredLink === "resources-blog" ? 'bold' : 'normal' }}
-                      className={`min-w-[120px] ${hoveredLink !== "resources-blog" ? "text-gray-600 dark:text-gray-300 font-medium" : ""} ${isMobile ? "text-center" : ""}`}
+                      className={`${hoveredLink !== "resources-blog" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
                     >
                       Blog
                     </a>
@@ -241,7 +255,7 @@ const Footer = ({ darkMode }: FooterProps) => {
                       onMouseEnter={() => setHoveredLink("resources-documentation")}
                       onMouseLeave={() => setHoveredLink(null)}
                       style={{ color: hoveredLink === "resources-documentation" ? animatedColor : undefined, fontWeight: hoveredLink === "resources-documentation" ? 'bold' : 'normal' }}
-                      className={`min-w-[120px] ${hoveredLink !== "resources-documentation" ? "text-gray-600 dark:text-gray-300 font-medium" : ""} ${isMobile ? "text-center" : ""}`}
+                      className={`${hoveredLink !== "resources-documentation" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
                     >
                       Documentation
                     </a>
@@ -252,7 +266,7 @@ const Footer = ({ darkMode }: FooterProps) => {
                       onMouseEnter={() => setHoveredLink("resources-guides")}
                       onMouseLeave={() => setHoveredLink(null)}
                       style={{ color: hoveredLink === "resources-guides" ? animatedColor : undefined, fontWeight: hoveredLink === "resources-guides" ? 'bold' : 'normal' }}
-                      className={`min-w-[120px] ${hoveredLink !== "resources-guides" ? "text-gray-600 dark:text-gray-300 font-medium" : ""} ${isMobile ? "text-center" : ""}`}
+                      className={`${hoveredLink !== "resources-guides" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
                     >
                       Guides
                     </a>
@@ -263,7 +277,7 @@ const Footer = ({ darkMode }: FooterProps) => {
                       onMouseEnter={() => setHoveredLink("resources-support")}
                       onMouseLeave={() => setHoveredLink(null)}
                       style={{ color: hoveredLink === "resources-support" ? animatedColor : undefined, fontWeight: hoveredLink === "resources-support" ? 'bold' : 'normal' }}
-                      className={`min-w-[120px] ${hoveredLink !== "resources-support" ? "text-gray-600 dark:text-gray-300 font-medium" : ""} ${isMobile ? "text-center" : ""}`}
+                      className={`${hoveredLink !== "resources-support" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
                     >
                       Support
                     </a>
@@ -272,19 +286,19 @@ const Footer = ({ darkMode }: FooterProps) => {
               </div>
 
               <div
-                className={`md:order-last lg:order-4 min-w-[150px] ${isMobile ? "text-center" : "lg:text-left"}`}
+                className={`md:order-last lg:order-4 ${isMobile ? "text-center" : "lg:text-center"}`}
               >
-                <h3 className="mb-6 font-semibold text-gray-900 dark:text-white text-center sm:text-left">
+                <h3 className="mb-6 font-semibold text-gray-900 dark:text-white">
                   Company
                 </h3>
-                <ul className={`space-y-4 ${isMobile ? "text-center" : ""}`}>
+                <ul className="space-y-4">
                   <li>
                     <a
                       href="#"
                       onMouseEnter={() => setHoveredLink("company-about")}
                       onMouseLeave={() => setHoveredLink(null)}
                       style={{ color: hoveredLink === "company-about" ? animatedColor : undefined, fontWeight: hoveredLink === "company-about" ? 'bold' : 'normal' }}
-                      className={`min-w-[120px] ${hoveredLink !== "company-about" ? "text-gray-600 dark:text-gray-300 font-medium" : ""} ${isMobile ? "text-center" : ""}`}
+                      className={`${hoveredLink !== "company-about" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
                     >
                       About us
                     </a>
@@ -295,7 +309,7 @@ const Footer = ({ darkMode }: FooterProps) => {
                       onMouseEnter={() => setHoveredLink("company-careers")}
                       onMouseLeave={() => setHoveredLink(null)}
                       style={{ color: hoveredLink === "company-careers" ? animatedColor : undefined, fontWeight: hoveredLink === "company-careers" ? 'bold' : 'normal' }}
-                      className={`min-w-[120px] ${hoveredLink !== "company-careers" ? "text-gray-600 dark:text-gray-300 font-medium" : ""} ${isMobile ? "text-center" : ""}`}
+                      className={`${hoveredLink !== "company-careers" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
                     >
                       Careers
                     </a>
@@ -306,7 +320,7 @@ const Footer = ({ darkMode }: FooterProps) => {
                       onMouseEnter={() => setHoveredLink("company-contact")}
                       onMouseLeave={() => setHoveredLink(null)}
                       style={{ color: hoveredLink === "company-contact" ? animatedColor : undefined, fontWeight: hoveredLink === "company-contact" ? 'bold' : 'normal' }}
-                      className={`min-w-[120px] ${hoveredLink !== "company-contact" ? "text-gray-600 dark:text-gray-300 font-medium" : ""} ${isMobile ? "text-center" : ""}`}
+                      className={`${hoveredLink !== "company-contact" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
                     >
                       Contact
                     </a>
@@ -317,7 +331,7 @@ const Footer = ({ darkMode }: FooterProps) => {
                       onMouseEnter={() => setHoveredLink("company-partners")}
                       onMouseLeave={() => setHoveredLink(null)}
                       style={{ color: hoveredLink === "company-partners" ? animatedColor : undefined, fontWeight: hoveredLink === "company-partners" ? 'bold' : 'normal' }}
-                      className={`min-w-[120px] ${hoveredLink !== "company-partners" ? "text-gray-600 dark:text-gray-300 font-medium" : ""} ${isMobile ? "text-center" : ""}`}
+                      className={`${hoveredLink !== "company-partners" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
                     >
                       Partners
                     </a>
@@ -329,13 +343,13 @@ const Footer = ({ darkMode }: FooterProps) => {
 
           {isMobile ? (
             <div className="mt-16 flex flex-col items-center justify-between border-t border-gray-200 pt-10 md:flex-row dark:border-gray-800">
-              <div className="mt-4 flex flex-col items-center space-x-0 space-y-2 md:mt-0 md:flex-row md:space-x-8 md:space-y-0 min-w-[150px]">
+              <div className="mt-4 flex flex-col items-center space-x-0 space-y-2 md:mt-0 md:flex-row md:space-x-8 md:space-y-0">
                 <a
                   href="#"
                   onMouseEnter={() => setHoveredLink("footer-privacy-mobile")}
                   onMouseLeave={() => setHoveredLink(null)}
                   style={{ color: hoveredLink === "footer-privacy-mobile" ? animatedColor : undefined, fontWeight: hoveredLink === "footer-privacy-mobile" ? 'bold' : 'normal' }}
-                  className={`min-w-[120px] ${hoveredLink !== "footer-privacy-mobile" ? "text-gray-600 dark:text-gray-300 font-medium" : ""} text-center`}
+                  className={`${hoveredLink !== "footer-privacy-mobile" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
                 >
                   Privacy Policy
                 </a>
@@ -344,7 +358,7 @@ const Footer = ({ darkMode }: FooterProps) => {
                   onMouseEnter={() => setHoveredLink("footer-terms-mobile")}
                   onMouseLeave={() => setHoveredLink(null)}
                   style={{ color: hoveredLink === "footer-terms-mobile" ? animatedColor : undefined, fontWeight: hoveredLink === "footer-terms-mobile" ? 'bold' : 'normal' }}
-                  className={`min-w-[120px] ${hoveredLink !== "footer-terms-mobile" ? "text-gray-600 dark:text-gray-300 font-medium" : ""} text-center`}
+                  className={`${hoveredLink !== "footer-terms-mobile" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
                 >
                   Terms of Service
                 </a>
@@ -353,7 +367,7 @@ const Footer = ({ darkMode }: FooterProps) => {
                   onMouseEnter={() => setHoveredLink("footer-cookies-mobile")}
                   onMouseLeave={() => setHoveredLink(null)}
                   style={{ color: hoveredLink === "footer-cookies-mobile" ? animatedColor : undefined, fontWeight: hoveredLink === "footer-cookies-mobile" ? 'bold' : 'normal' }}
-                  className={`min-w-[120px] ${hoveredLink !== "footer-cookies-mobile" ? "text-gray-600 dark:text-gray-300 font-medium" : ""} text-center`}
+                  className={`${hoveredLink !== "footer-cookies-mobile" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
                 >
                   Cookies
                 </a>
@@ -369,13 +383,13 @@ const Footer = ({ darkMode }: FooterProps) => {
               <p className="text-gray-600 dark:text-gray-400">
                 &copy; 2025 Bridgeach. All rights reserved.
               </p>
-              <div className="mt-4 flex flex-col items-center space-x-0 space-y-2 md:mt-0 md:flex-row md:space-x-8 md:space-y-0 min-w-[150px]">
+              <div className="mt-4 flex flex-col items-center space-x-0 space-y-2 md:mt-0 md:flex-row md:space-x-8 md:space-y-0">
                 <a
                   href="#"
                   onMouseEnter={() => setHoveredLink("footer-privacy")}
                   onMouseLeave={() => setHoveredLink(null)}
                   style={{ color: hoveredLink === "footer-privacy" ? animatedColor : undefined, fontWeight: hoveredLink === "footer-privacy" ? 'bold' : 'normal' }}
-                  className={`min-w-[120px] ${hoveredLink !== "footer-privacy" ? "text-gray-600 dark:text-gray-300 font-medium" : ""} text-center`}
+                  className={`${hoveredLink !== "footer-privacy" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
                 >
                   Privacy Policy
                 </a>
@@ -384,7 +398,7 @@ const Footer = ({ darkMode }: FooterProps) => {
                   onMouseEnter={() => setHoveredLink("footer-terms")}
                   onMouseLeave={() => setHoveredLink(null)}
                   style={{ color: hoveredLink === "footer-terms" ? animatedColor : undefined, fontWeight: hoveredLink === "footer-terms" ? 'bold' : 'normal' }}
-                  className={`min-w-[120px] ${hoveredLink !== "footer-terms" ? "text-gray-600 dark:text-gray-300 font-medium" : ""} text-center`}
+                  className={`${hoveredLink !== "footer-terms" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
                 >
                   Terms of Service
                 </a>
@@ -393,7 +407,7 @@ const Footer = ({ darkMode }: FooterProps) => {
                   onMouseEnter={() => setHoveredLink("footer-cookies")}
                   onMouseLeave={() => setHoveredLink(null)}
                   style={{ color: hoveredLink === "footer-cookies" ? animatedColor : undefined, fontWeight: hoveredLink === "footer-cookies" ? 'bold' : 'normal' }}
-                  className={`min-w-[120px] ${hoveredLink !== "footer-cookies" ? "text-gray-600 dark:text-gray-300 font-medium" : ""} text-center`}
+                  className={`${hoveredLink !== "footer-cookies" ? "text-gray-600 dark:text-gray-300 font-medium" : ""}`}
                 >
                   Cookies
                 </a>
