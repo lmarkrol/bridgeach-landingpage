@@ -1,3 +1,6 @@
+"use client";
+import { useState, useEffect } from "react";
+
 interface ContactProps {
   buttonTextColor: string;
   talkToSalesTextColor: string;
@@ -9,6 +12,53 @@ const Contact = ({
   talkToSalesTextColor,
   talkToSalesBorderColor,
 }: ContactProps) => {
+  const [visibility, setVisibility] = useState({
+    title: false,
+    paragraph: false,
+    buttons: false,
+    contactInfo1: false,
+    contactInfo2: false,
+    contactInfo3: false,
+  });
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => setVisibility((v) => ({ ...v, title: true })), 0);
+            setTimeout(() => setVisibility((v) => ({ ...v, paragraph: true })), 400);
+            setTimeout(() => setVisibility((v) => ({ ...v, buttons: true })), 800);
+            setTimeout(() => setVisibility((v) => ({ ...v, contactInfo1: true })), 1200);
+            setTimeout(() => setVisibility((v) => ({ ...v, contactInfo2: true })), 1600);
+            setTimeout(() => setVisibility((v) => ({ ...v, contactInfo3: true })), 2000);
+          } else {
+            setVisibility({
+              title: false,
+              paragraph: false,
+              buttons: false,
+              contactInfo1: false,
+              contactInfo2: false,
+              contactInfo3: false,
+            });
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    const contactSection = document.getElementById("contacts");
+    if (contactSection) {
+      observer.observe(contactSection);
+    }
+
+    return () => {
+      if (contactSection) {
+        observer.unobserve(contactSection);
+      }
+    };
+  }, []);
+
   return (
     <section
       id="contacts"
@@ -17,14 +67,26 @@ const Contact = ({
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-4xl rounded-3xl bg-white p-8 shadow-lg dark:bg-gray-900 md:p-12">
           <div className="text-center">
-            <h2 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
+            <h2
+              className={`mb-4 text-3xl font-bold text-gray-900 dark:text-white md:text-4xl transition-all duration-1500 ease-in-out ${
+                visibility.title ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+              }`}
+            >
               Ready to get started?
             </h2>
-            <p className="mb-8 text-xl text-gray-600 dark:text-gray-300">
+            <p
+              className={`mb-8 text-xl text-gray-600 dark:text-gray-300 transition-all duration-1500 ease-in-out ${
+                visibility.paragraph ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+              }`}
+            >
               Join thousands of satisfied customers transforming their workflow
               with Bridgeach.
             </p>
-            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+            <div
+              className={`flex flex-col justify-center gap-4 sm:flex-row transition-all duration-1500 ease-in-out ${
+                visibility.buttons ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+              }`}
+            >
               <button
                 className="transform rounded-lg bg-accent-500 px-8 py-4 font-semibold shadow-lg transition duration-300 hover:scale-110 hover:bg-accent-600"
                 style={{ color: buttonTextColor }}
@@ -44,7 +106,11 @@ const Contact = ({
           </div>
 
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div className="flex flex-col items-center text-center">
+            <div
+              className={`flex flex-col items-center text-center transition-all duration-1500 ease-in-out ${
+                visibility.contactInfo1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+              }`}
+            >
               <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-accent-100 transition-all hover:scale-110 dark:bg-accent-900/30">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +123,7 @@ const Contact = ({
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
               </div>
@@ -75,7 +141,11 @@ const Contact = ({
               </a>
             </div>
 
-            <div className="flex flex-col items-center text-center">
+            <div
+              className={`flex flex-col items-center text-center transition-all duration-1500 ease-in-out ${
+                visibility.contactInfo2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+              }`}
+            >
               <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-accent-100 transition-all hover:scale-110 dark:bg-accent-900/30">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -101,14 +171,21 @@ const Contact = ({
                 Our Location
               </h3>
               <p className="mb-3 text-gray-600 dark:text-gray-300">
-                Visit us in our office
+                Visit us in our virtual office
               </p>
-              <p className="text-gray-600 dark:text-gray-300">
-                San Francisco, CA
-              </p>
+              <a
+                href="#"
+                className="text-accent-600 hover:underline dark:text-accent-400"
+              >
+                hq.bridgeach.com
+              </a>
             </div>
 
-            <div className="flex flex-col items-center text-center">
+            <div
+              className={`flex flex-col items-center text-center transition-all duration-1500 ease-in-out ${
+                visibility.contactInfo3 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+              }`}
+            >
               <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-accent-100 transition-all hover:scale-110 dark:bg-accent-900/30">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -132,7 +209,7 @@ const Contact = ({
                 We&apos;re here to assist you
               </p>
               <p className="text-gray-600 dark:text-gray-300">
-                Mon-Fri: 9AM - 6PM
+                Mon-Fri: 9AM - 5PM (UTC +7)
               </p>
             </div>
           </div>

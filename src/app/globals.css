@@ -230,20 +230,20 @@
   background-image:
     radial-gradient(
       circle at 50% 50%,
-      rgba(229, 69, 55, 0.08),
+      rgba(0, 79, 204, 0.08), /* #004FCC - deep blue */
       transparent 40%
     ),
     radial-gradient(
       circle at 50% 50%,
-      rgba(235, 197, 38, 0.08),
+      rgba(58, 0, 204, 0.08), /* #3A00CC - deep violet */
       transparent 40%
     ),
     radial-gradient(
       circle at 50% 50%,
-      rgba(37, 173, 88, 0.08),
+      rgba(204, 0, 102, 0.08), /* #CC0066 - strong magenta */
       transparent 40%
     ),
-    radial-gradient(circle at 50% 50%, rgba(230, 84, 54, 0.08), transparent 40%);
+    radial-gradient(circle at 50% 50%, rgba(204, 0, 0, 0.08), transparent 40%); /* #CC0000 - deep red */
   background-size:
     200% 200%,
     200% 200%,
@@ -252,5 +252,141 @@
   animation: aurora-move 30s ease-in-out infinite;
   position: relative;
   z-index: 0;
+}
+
+.dark .aurora-bg {
+  background-image:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(58, 132, 255, 0.08), /* #3A84FF - bright blue */
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(135, 77, 255, 0.08), /* #874DFF - vivid violet */
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 77, 160, 0.08), /* #FF4DA0 - bright magenta */
+      transparent 40%
+    ),
+    radial-gradient(circle at 50% 50%, rgba(255, 77, 77, 0.08), transparent 40%); /* #FF4D4D - bright red */
+}
+
+.aurora-rgb {
+  background-size:
+    200% 200%,
+    200% 200%,
+    200% 200%,
+    200% 200%;
+  animation: aurora-move 30s ease-in-out infinite;
+  position: relative;
+  z-index: 0;
+}
+
+.cube-container {
+  width: 200px;
+  height: 200px;
+  perspective: 800px;
+  margin: 50px auto;
+}
+
+.cube {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: rotate 8s infinite linear;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.perspective-midrange {
+  perspective: 800px;
+}
+
+.face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  color: rgb(214, 21, 21);
+  font-size: 18px;
+  text-align: center;
+  line-height: 200px;
+  background: transparent;
+  opacity: 0.9;
+  border: 2px solid;
+  border-image: linear-gradient(to right, #ff6b6b, #355c7d, #557d35, #cfcf16, #a51f1f) 1;
+  box-shadow: 0 0 100px rgba(245, 8, 8, 0.8);
+}
+
+.front {
+  transform: translateZ(100px);
+}
+
+.back {
+  transform: rotateY(180deg) translateZ(100px);
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(100px);
+}
+
+.left {
+  transform: rotateY(-90deg) translateZ(100px);
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(100px);
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ(100px);
+}
+
+.cube-container:hover .cube {
+  animation-play-state: paused;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateX(0) rotateY(0) rotateZ(0);
+  }
+
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+@keyframes aura-opacity-pulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.blinking-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: currentColor;
+  animation: blink 0.5s step-end infinite;
+}
+
+@keyframes blink {
+  from, to {
+    background-color: transparent;
+  }
+  50% {
+    background-color: currentColor;
+  }
 }
 

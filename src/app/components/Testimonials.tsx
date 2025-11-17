@@ -298,16 +298,17 @@ const Testimonials = () => {
               onTouchStart={handleTouchStartDesktop}
               onTouchMove={handleTouchMoveDesktop}
               onTouchEnd={handleTouchEndDesktop}
-              style={{ overflowX: "scroll", overflowY: "hidden", cursor: "grab" }}
+              style={{ overflowX: "scroll", overflowY: "hidden", cursor: "grab", minHeight: "300px" }}
             >
               {[...testimonials, ...testimonials].map((testimonial, index) => (
                 <div
                   key={index}
-                  className="card shrink-0 w-full md:w-1/2 lg:w-1/3 max-w-sm py-[0.12rem]"
+                  className="card card-desktop shrink-0 w-full md:w-1/2 lg:w-1/3 max-w-sm py-[0.12rem]"
+                  style={{ position: "relative", width: "380px", height: "259px" }}
                 >
-                  <div className="bg uwu" />
-                  <div className="bg" />
-                  <div className="rounded-2xl border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900 overflow-hidden">
+                  <div className="bg uwu" style={{ width: "380px", height: "250px", top: "6px", left: "0", position: "absolute" }} />
+                  <div className="bg" style={{ width: "380px", height: "250px", top: "6px", left: "0", position: "absolute" }} />
+                  <div className="rounded-2xl border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900 overflow-hidden" style={{ width: "374px", height: "244px", position: "absolute", top: "9px", left: "3px" }}>
                     <div className="content p-8 overflow-y-hidden">
                       <div className="mb-4 flex items-center">
                         <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent-100 text-accent-600 dark:bg-accent-900/30 dark:text-accent-400">

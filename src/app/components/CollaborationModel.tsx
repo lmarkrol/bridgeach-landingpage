@@ -1,6 +1,31 @@
+"use client";
+import { useState, useEffect } from "react";
 import "../css/card-line.css";
 
 const CollaborationModel = () => {
+  const [visibility, setVisibility] = useState<Record<string, boolean>>({});
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = entry.target.getAttribute("data-collaboration-id");
+          if (id) {
+            setVisibility((prev) => ({ ...prev, [id]: entry.isIntersecting }));
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+
+    const elements = document.querySelectorAll("[data-collaboration-id]");
+    elements.forEach((el) => observer.observe(el));
+
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
+
   return (
     <section
       id="collaboration"
@@ -17,10 +42,18 @@ const CollaborationModel = () => {
         </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {/* Dedicated Plan */}
-          <div className="card flex flex-col rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg dark:border-gray-800 dark:bg-gray-900">
+          <div
+            data-collaboration-id="dedicated"
+            className={`card flex flex-col rounded-2xl border border-gray-200 shadow-sm transition-all duration-1000 ease-in-out hover:shadow-lg dark:border-gray-800 ${
+              visibility["dedicated"]
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 -translate-x-10"
+            }`}
+            style={{ transitionDelay: `0ms` }}
+          >
             <div className="bg uwu" />
             <div className="bg" />
-            <div className="content p-8 flex-grow">
+            <div className="relative z-10 content p-8 flex-grow rounded-2xl bg-white dark:bg-gray-900">
               <div className="mb-4 flex justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -119,10 +152,18 @@ const CollaborationModel = () => {
           </div>
 
           {/* Project Based Plan */}
-          <div className="card flex flex-col relative rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg dark:border-gray-800 dark:bg-gray-900">
+          <div
+            data-collaboration-id="project"
+            className={`card flex flex-col relative rounded-2xl border border-gray-200 shadow-sm transition-all duration-1000 ease-in-out hover:shadow-lg dark:border-gray-800 ${
+              visibility["project"]
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+            style={{ transitionDelay: `250ms` }}
+          >
             <div className="bg uwu" />
             <div className="bg" />
-            <div className="content p-8 flex-grow">
+            <div className="relative z-10 content p-8 flex-grow rounded-2xl bg-white dark:bg-gray-900">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 transform">
                 <span className="rounded-full bg-accent-600 px-4 py-1 text-sm font-medium text-white">
                   Popular
@@ -232,10 +273,18 @@ const CollaborationModel = () => {
           </div>
 
           {/* On Demand Plan */}
-          <div className="card flex flex-col rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg dark:border-gray-800 dark:bg-gray-900">
+          <div
+            data-collaboration-id="ondemand"
+            className={`card flex flex-col rounded-2xl border border-gray-200 shadow-sm transition-all duration-1000 ease-in-out hover:shadow-lg dark:border-gray-800 ${
+              visibility["ondemand"]
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 translate-x-10"
+            }`}
+            style={{ transitionDelay: `500ms` }}
+          >
             <div className="bg uwu" />
             <div className="bg" />
-            <div className="content p-8 flex-grow">
+            <div className="relative z-10 content p-8 flex-grow rounded-2xl bg-white dark:bg-gray-900">
               <div className="mb-4 flex justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

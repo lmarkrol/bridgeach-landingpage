@@ -106,6 +106,7 @@ export default function LandingPage() {
         buttonTextColor={buttonTextColor}
         talkToSalesTextColor={talkToSalesTextColor}
         talkToSalesBorderColor={talkToSalesBorderColor}
+        darkMode={darkMode}
         scrollToSection={scrollToSection}
       />
 
