@@ -351,6 +351,27 @@
   animation-play-state: paused;
 }
 
+/* Mobile browser header fix */
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari specific fix */
+  header.sticky {
+    position: -webkit-sticky;
+  }
+}
+
+/* Additional mobile header fixes */
+body.mobile-header-fix {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+body.mobile-header-fix header {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;
+  height: auto !important;
+}
+
 @keyframes rotate {
   0% {
     transform: rotateX(0) rotateY(0) rotateZ(0);

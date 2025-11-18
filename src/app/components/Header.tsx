@@ -101,7 +101,7 @@ const Header = ({ darkMode, toggleTheme, scrollToSection }: HeaderProps) => {
   return (
     <>
       <header
-        className="sticky top-0 z-50 container mx-auto flex items-center justify-between border-b border-gray-200/30 bg-white/80 px-4 sm:px-6 lg:px-8 xl:px-16 py-6 backdrop-blur-sm dark:border-gray-800/50 dark:bg-gray-900/80 shadow-lg"
+        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between border-b border-gray-200/30 bg-white/80 px-4 sm:px-6 lg:px-8 xl:px-16 py-6 backdrop-blur-sm dark:border-gray-800/50 dark:bg-gray-900/80 shadow-lg"
         style={{ zIndex: 1000 }}
       >
         <div className="flex items-center space-x-2">
@@ -300,8 +300,9 @@ const Header = ({ darkMode, toggleTheme, scrollToSection }: HeaderProps) => {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div
-          className="fixed top-[89px] left-0 right-0 z-40 bg-white/70 px-4 sm:px-6 lg:px-8 xl:px-16 py-6 shadow-lg md:hidden dark:bg-gray-900/70 border-b border-gray-200/30 dark:border-gray-800/50"
+          className="fixed left-0 right-0 z-40 bg-white/70 px-4 sm:px-6 lg:px-8 xl:px-16 py-6 shadow-lg md:hidden dark:bg-gray-900/70 border-b border-gray-200/30 dark:border-gray-800/50"
           style={{
+            top: 'calc(6rem + 0rem + 1px)',
             backdropFilter: "blur(12px)",
             WebkitBackdropFilter: "blur(12px)",
           }}

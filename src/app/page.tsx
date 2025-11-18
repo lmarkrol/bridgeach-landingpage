@@ -17,7 +17,10 @@ export default function LandingPage() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const targetPosition = element.offsetTop - 80; // 80px offset for navbar height
+      // Check if we're on mobile to adjust the offset
+      const isMobile = window.innerWidth < 768;
+      const headerHeight = isMobile ? 97 : 80; // Mobile header might appear slightly different
+      const targetPosition = element.offsetTop - headerHeight;
       const startPosition = window.pageYOffset;
       const distance = targetPosition - startPosition;
       const duration = 800; // 800ms for smooth scrolling
@@ -95,7 +98,7 @@ export default function LandingPage() {
   const talkToSalesBorderColor = darkMode ? "#FFFFFF" : "#000000";
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 text-gray-900 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 dark:text-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 text-gray-900 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 dark:text-gray-100 relative overflow-x-hidden">
       <Header
         darkMode={darkMode}
         toggleTheme={toggleTheme}
