@@ -76,15 +76,29 @@ export default function LandingPage() {
 
   // Effect to read initial theme from localStorage or system preference
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
-    const initialDarkMode = savedTheme ? savedTheme === "dark" : prefersDark;
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+    const getThemePreference = () => {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) {
+        return savedTheme === "dark";
+      }
+      return mediaQuery.matches;
+    };
+
+    const initialDarkMode = getThemePreference();
     setDarkMode(initialDarkMode);
     applyTheme(initialDarkMode ? "dark" : "light");
+
+    const handleChange = (e: MediaQueryListEvent) => {
+      if (!localStorage.getItem("theme")) {
+        setDarkMode(e.matches);
+      }
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => mediaQuery.removeEventListener("change", handleChange);
   }, []); // Empty dependency array means it runs once after initial render
 
   // Effect to apply theme whenever darkMode changes (after initial mount or toggle)
