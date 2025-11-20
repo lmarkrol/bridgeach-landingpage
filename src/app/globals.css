@@ -25,20 +25,32 @@
   --color-slate-900: #0f172a;
 
   /* Accent color definitions - using #3180FC as base blue shade */
-  --color-accent-50: #f0f5ff; /* Lightest accent shade */
-  --color-accent-100: #e0ebff; /* Light accent shade */
-  --color-accent-200: #caddff; /* Lighter accent shade */
-  --color-accent-300: #a9ccff; /* Light accent shade */
-  --color-accent-400: #7bb7fd; /* Medium accent shade */
-  --color-accent-500: #3180fc; /* Primary accent color */
-  --color-accent-600: #256be8; /* Dark accent shade */
-  --color-accent-700: #1d57d0; /* Darker accent shade */
-  --color-accent-800: #1747b8; /* Dark accent shade */
-  --color-accent-900: #1238a0; /* Darkest accent shade */
+  --color-accent-50: #f0f5ff;
+  /* Lightest accent shade */
+  --color-accent-100: #e0ebff;
+  /* Light accent shade */
+  --color-accent-200: #caddff;
+  /* Lighter accent shade */
+  --color-accent-300: #a9ccff;
+  /* Light accent shade */
+  --color-accent-400: #7bb7fd;
+  /* Medium accent shade */
+  --color-accent-500: #3180fc;
+  /* Primary accent color */
+  --color-accent-600: #256be8;
+  /* Dark accent shade */
+  --color-accent-700: #1d57d0;
+  /* Darker accent shade */
+  --color-accent-800: #1747b8;
+  /* Dark accent shade */
+  --color-accent-900: #1238a0;
+  /* Darkest accent shade */
 
   /* Additional accent color variables for easy future adjustments */
-  --color-accent-primary: #3180fc; /* Primary accent color */
-  --color-accent-secondary: #256be8; /* Secondary accent color */
+  --color-accent-primary: #3180fc;
+  /* Primary accent color */
+  --color-accent-secondary: #256be8;
+  /* Secondary accent color */
 }
 
 @layer components {
@@ -73,6 +85,7 @@
       50% 0%,
       50% 100%;
   }
+
   8% {
     background-position:
       100% 50%,
@@ -80,6 +93,7 @@
       50% 100%,
       50% 0%;
   }
+
   /* Pause from 8% to 10% (2% of 30s = 0.6s equivalent to the 6s cycle) */
   10% {
     background-position:
@@ -88,6 +102,7 @@
       50% 100%,
       50% 0%;
   }
+
   /* Resume from 10% to 18% */
   18% {
     background-position:
@@ -96,6 +111,7 @@
       0% 50%,
       100% 50%;
   }
+
   /* Pause from 18% to 20% */
   20% {
     background-position:
@@ -104,6 +120,7 @@
       0% 50%,
       100% 50%;
   }
+
   /* Resume from 20% to 28% */
   28% {
     background-position:
@@ -112,6 +129,7 @@
       100% 50%,
       0% 50%;
   }
+
   /* Pause from 28% to 30% */
   30% {
     background-position:
@@ -120,6 +138,7 @@
       100% 50%,
       0% 50%;
   }
+
   /* Resume from 30% to 38% */
   38% {
     background-position:
@@ -128,6 +147,7 @@
       50% 0%,
       50% 100%;
   }
+
   /* Pause from 38% to 40% */
   40% {
     background-position:
@@ -136,6 +156,7 @@
       50% 0%,
       50% 100%;
   }
+
   /* Resume from 40% to 48% */
   48% {
     background-position:
@@ -144,6 +165,7 @@
       25% 75%,
       75% 75%;
   }
+
   /* Pause from 48% to 50% */
   50% {
     background-position:
@@ -152,6 +174,7 @@
       25% 75%,
       75% 75%;
   }
+
   /* Resume from 50% to 58% */
   58% {
     background-position:
@@ -160,6 +183,7 @@
       50% 0%,
       50% 100%;
   }
+
   /* Pause from 58% to 60% */
   60% {
     background-position:
@@ -168,6 +192,7 @@
       50% 0%,
       50% 100%;
   }
+
   /* Resume from 60% to 68% */
   68% {
     background-position:
@@ -176,6 +201,7 @@
       50% 100%,
       50% 0%;
   }
+
   /* Pause from 68% to 70% */
   70% {
     background-position:
@@ -184,6 +210,7 @@
       50% 100%,
       50% 0%;
   }
+
   /* Resume from 70% to 78% */
   78% {
     background-position:
@@ -192,6 +219,7 @@
       0% 50%,
       100% 50%;
   }
+
   /* Pause from 78% to 80% */
   80% {
     background-position:
@@ -200,6 +228,7 @@
       0% 50%,
       100% 50%;
   }
+
   /* Resume from 80% to 88% */
   88% {
     background-position:
@@ -208,6 +237,7 @@
       100% 50%,
       0% 50%;
   }
+
   /* Pause from 88% to 90% */
   90% {
     background-position:
@@ -216,6 +246,7 @@
       100% 50%,
       0% 50%;
   }
+
   /* Resume from 90% to 100% */
   100% {
     background-position:
@@ -228,22 +259,20 @@
 
 .aurora-bg {
   background-image:
-    radial-gradient(
-      circle at 50% 50%,
-      rgba(0, 79, 204, 0.08), /* #004FCC - deep blue */
-      transparent 40%
-    ),
-    radial-gradient(
-      circle at 50% 50%,
-      rgba(58, 0, 204, 0.08), /* #3A00CC - deep violet */
-      transparent 40%
-    ),
-    radial-gradient(
-      circle at 50% 50%,
-      rgba(204, 0, 102, 0.08), /* #CC0066 - strong magenta */
-      transparent 40%
-    ),
-    radial-gradient(circle at 50% 50%, rgba(204, 0, 0, 0.08), transparent 40%); /* #CC0000 - deep red */
+    radial-gradient(circle at 50% 50%,
+      rgba(0, 79, 204, 0.08),
+      /* #004FCC - deep blue */
+      transparent 40%),
+    radial-gradient(circle at 50% 50%,
+      rgba(58, 0, 204, 0.08),
+      /* #3A00CC - deep violet */
+      transparent 40%),
+    radial-gradient(circle at 50% 50%,
+      rgba(204, 0, 102, 0.08),
+      /* #CC0066 - strong magenta */
+      transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(204, 0, 0, 0.08), transparent 40%);
+  /* #CC0000 - deep red */
   background-size:
     200% 200%,
     200% 200%,
@@ -256,22 +285,20 @@
 
 .dark .aurora-bg {
   background-image:
-    radial-gradient(
-      circle at 50% 50%,
-      rgba(58, 132, 255, 0.08), /* #3A84FF - bright blue */
-      transparent 40%
-    ),
-    radial-gradient(
-      circle at 50% 50%,
-      rgba(135, 77, 255, 0.08), /* #874DFF - vivid violet */
-      transparent 40%
-    ),
-    radial-gradient(
-      circle at 50% 50%,
-      rgba(255, 77, 160, 0.08), /* #FF4DA0 - bright magenta */
-      transparent 40%
-    ),
-    radial-gradient(circle at 50% 50%, rgba(255, 77, 77, 0.08), transparent 40%); /* #FF4D4D - bright red */
+    radial-gradient(circle at 50% 50%,
+      rgba(58, 132, 255, 0.08),
+      /* #3A84FF - bright blue */
+      transparent 40%),
+    radial-gradient(circle at 50% 50%,
+      rgba(135, 77, 255, 0.08),
+      /* #874DFF - vivid violet */
+      transparent 40%),
+    radial-gradient(circle at 50% 50%,
+      rgba(255, 77, 160, 0.08),
+      /* #FF4DA0 - bright magenta */
+      transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(255, 77, 77, 0.08), transparent 40%);
+  /* #FF4D4D - bright red */
 }
 
 .aurora-rgb {
@@ -353,6 +380,7 @@
 
 /* Mobile browser header fix */
 @supports (-webkit-touch-callout: none) {
+
   /* iOS Safari specific fix */
   header.sticky {
     position: -webkit-sticky;
@@ -383,14 +411,14 @@ body.mobile-header-fix header {
 }
 
 @keyframes aura-opacity-pulse {
-  0% {
-    opacity: 0;
+
+  0%,
+  100% {
+    opacity: 0.25;
   }
+
   50% {
     opacity: 1;
-  }
-  100% {
-    opacity: 0;
   }
 }
 
@@ -403,11 +431,61 @@ body.mobile-header-fix header {
 }
 
 @keyframes blink {
-  from, to {
+
+  from,
+  to {
     background-color: transparent;
   }
+
   50% {
     background-color: currentColor;
   }
 }
 
+@keyframes rotate-icosahedron {
+  0% {
+    transform: rotate3d(1, 1, 1, 0deg);
+  }
+
+  100% {
+    transform: rotate3d(1, 1, 1, 360deg);
+  }
+}
+
+@keyframes float-gentle {
+  0% {
+    transform: translate(-50px, -40px);
+  }
+
+  25% {
+    transform: translate(50px, -40px);
+  }
+
+  35% {
+    transform: translate(80px, -10px);
+  }
+
+  40% {
+    transform: translate(80px, 10px);
+  }
+
+  50% {
+    transform: translate(50px, 40px);
+  }
+
+  75% {
+    transform: translate(-50px, 40px);
+  }
+
+  85% {
+    transform: translate(-80px, 10px);
+  }
+
+  90% {
+    transform: translate(-80px, -10px);
+  }
+
+  100% {
+    transform: translate(-50px, -40px);
+  }
+}
