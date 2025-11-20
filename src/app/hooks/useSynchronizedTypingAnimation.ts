@@ -6,6 +6,8 @@ interface UseSynchronizedTypingAnimationProps {
   typingSpeed?: number;
   deletingSpeed?: number;
   pauseDuration?: number;
+  deleteStep?: number;
+  typingStep?: number;
 }
 
 const useSynchronizedTypingAnimation = ({
@@ -14,6 +16,8 @@ const useSynchronizedTypingAnimation = ({
   typingSpeed = 30,
   deletingSpeed = 15,
   pauseDuration = 2000,
+  deleteStep = 1,
+  typingStep = 1,
 }: UseSynchronizedTypingAnimationProps) => {
   const [displayedTitle, setDisplayedTitle] = useState('');
   const [displayedSubtitle, setDisplayedSubtitle] = useState('');
@@ -33,13 +37,13 @@ const useSynchronizedTypingAnimation = ({
         let subtitleDeleted = false;
 
         if (displayedTitle.length > 0) {
-          setDisplayedTitle(currentTitle.substring(0, displayedTitle.length - 1));
+          setDisplayedTitle(currentTitle.substring(0, Math.max(0, displayedTitle.length - deleteStep)));
         } else {
           titleDeleted = true;
         }
 
         if (displayedSubtitle.length > 0) {
-          setDisplayedSubtitle(currentSubtitle.substring(0, displayedSubtitle.length - 1));
+          setDisplayedSubtitle(currentSubtitle.substring(0, Math.max(0, displayedSubtitle.length - deleteStep)));
         } else {
           subtitleDeleted = true;
         }
@@ -54,13 +58,13 @@ const useSynchronizedTypingAnimation = ({
         let subtitleTyped = false;
 
         if (displayedTitle.length < currentTitle.length) {
-          setDisplayedTitle(currentTitle.substring(0, displayedTitle.length + 1));
+          setDisplayedTitle(currentTitle.substring(0, Math.min(currentTitle.length, displayedTitle.length + typingStep)));
         } else {
           titleTyped = true;
         }
 
         if (displayedSubtitle.length < currentSubtitle.length) {
-          setDisplayedSubtitle(currentSubtitle.substring(0, displayedSubtitle.length + 1));
+          setDisplayedSubtitle(currentSubtitle.substring(0, Math.min(currentSubtitle.length, displayedSubtitle.length + typingStep)));
         } else {
           subtitleTyped = true;
         }
@@ -91,6 +95,8 @@ const useSynchronizedTypingAnimation = ({
     typingSpeed,
     deletingSpeed,
     pauseDuration,
+    deleteStep,
+    typingStep,
   ]);
 
   return { displayedTitle, displayedSubtitle };
