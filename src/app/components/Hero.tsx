@@ -1,5 +1,6 @@
 "use client";
 import Cube from '../elements/Cube';
+import Icosahedron from '../elements/Icosahedron';
 import useSynchronizedTypingAnimation from '../hooks/useSynchronizedTypingAnimation';
 import { useState, useEffect } from 'react';
 
@@ -63,7 +64,7 @@ const Hero = ({
 
   useEffect(() => {
     let animationFrameId: number;
-    const cycleDuration = 3000; // 3 seconds for full cycle
+    const cycleDuration = 12000; // 12 seconds for full cycle
     const colors = darkMode ? darkRGBColors : lightRGBColors;
     let startTime: number | null = null;
 
@@ -119,9 +120,11 @@ const Hero = ({
   const { displayedTitle, displayedSubtitle } = useSynchronizedTypingAnimation({
     titles,
     subtitles,
-    typingSpeed: 30,
-    deletingSpeed: 15,
-    pauseDuration: 2000,
+    typingSpeed: 5,
+    deletingSpeed: 10,
+    deleteStep: 3,
+    typingStep: 3,
+    pauseDuration: 3000,
   });
 
   return (
@@ -160,9 +163,9 @@ const Hero = ({
         </div>
 
         {/* Cube with constrained width on mobile */}
-        <div className="my-0 w-full flex justify-center items-center overflow-hidden">
-          <div className="scale-[0.5] origin-center">
-            <Cube darkMode={darkMode} />
+        <div className="-my-8 w-full min-h-[350px] flex justify-center items-center overflow-hidden">
+          <div className="scale-[0.75] origin-center">
+            <Icosahedron darkMode={darkMode} />
           </div>
         </div>
 
@@ -238,8 +241,8 @@ const Hero = ({
         </div>
 
         {/* Right side - Cube */}
-        <div className="flex-1 flex justify-center">
-          <Cube darkMode={darkMode} />
+        <div className="min-w-[500px] flex justify-center items-center relative z-10 overflow-visible">
+          <Icosahedron darkMode={darkMode} />
         </div>
       </div>
     </section>
